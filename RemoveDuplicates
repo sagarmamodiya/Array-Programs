@@ -1,0 +1,35 @@
+import java.util.*;
+public class ArrayRemoveDuplicatesElements
+{ 
+
+      public static void main(String []args)
+      {
+         int a[]={2,2,5,6,4,3,3,5};
+         int count=removeDuplicate(a);
+         for(int i=0;i<a.length-count;i++)
+         {
+             System.out.print(a[i]);
+             
+             
+         }
+      }
+      public static int removeDuplicate(int a[])
+      {
+         HashSet<Integer> hs=new HashSet<Integer>();
+         int count=0;
+         for(int i=0;i<a.length;i++)
+         {
+             if(!hs.add(a[i]))
+             { 
+                 count++;
+                 for(int j=i;j<a.length-1;j++)
+                 {
+                     a[j]=a[j+1];
+                 }
+             }
+             
+             
+         }
+         return count;
+     }
+}     
