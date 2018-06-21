@@ -1,0 +1,44 @@
+package com;
+import java.util.HashMap;
+import java.util.Map;
+class RepeatedTwiceExceptOne
+{
+
+	public static void main(String[] args)
+	{
+	       int a[]= {2,2,3,3,4,4,5,5,6,6,9,9,7,};
+	       int result=ExceptOne(a);
+	       System.out.println(result);
+	       
+
+	}
+	public static int ExceptOne(int a[])
+	{
+		int one=0;
+		HashMap<Integer,Integer> hs=new HashMap<Integer,Integer>();
+		for(int p:a)
+		{
+		   if(!hs.containsKey(p))
+		   {
+			    hs.put(p, 1);
+			
+		   }
+		   else
+		   {
+			   hs.put(p,hs.get(p)+1);
+		   }
+		}   
+	   for(Map.Entry<Integer,Integer> m:hs.entrySet()){  
+			  // System.out.println(m.getKey()+" "+m.getValue());  
+			  
+			   if(((int)m.getValue())==1)
+			   {
+				   return (int)m.getKey();
+			   }
+		  }  
+		
+		
+		return one;
+	}
+
+}
